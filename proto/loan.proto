@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package loan;
+
+service LoanService {
+    rpc GetLoans (GetLoansRequest) returns (GetLoansResponse);
+}
+
+message GetLoansRequest {}
+
+message Loan {
+    int32 id = 1;
+    int32 user_id = 2;
+    int32 loan_type_id = 3;
+    double amount = 4;
+    string currency = 5;
+    int32 term_months = 6;
+    double interest_rate = 7;
+    double monthly_payment = 8;
+    double balance = 9;
+    string status = 10;
+    string start_date = 11;
+    string end_date = 12;
+}
+
+message GetLoansResponse {
+    repeated Loan loans = 1;
+}
